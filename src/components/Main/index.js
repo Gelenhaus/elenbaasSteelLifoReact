@@ -6,12 +6,23 @@ let userInput = [];
 function MainPage() {
 
     const [typedNumbers, setTypedNumbers] = useState('Please enter numbers here');
+    const [howManyYears, setHowManyYears] = useState('How many years of values are you using?')
+
+    let numberOfYears = 0;
+
+    const changeYears = () => {
+        numberOfYears = document.getElementById('textarea1').value;
+        console.log(numberOfYears);
+    }
+
+    const deleteYears = () => {
+        numberOfYears = 0;
+        console.log(numberOfYears);
+    }
 
     const addToArray = () => {
-        userInput.push(document.getElementById('textarea').value);
+        userInput.push(document.getElementById('textarea2').value);
         console.log(userInput);
-
-
     };
 
     const deleteArrayValues = () => {
@@ -24,24 +35,35 @@ function MainPage() {
         <section>
             <p id=''>Hello Elenbaas Steel</p>
 
-            <textarea id='textarea'>
-                {typedNumbers}
+            <textarea id='textarea1'>
+                {howManyYears}
             </textarea>
 
             <br></br>
 
-            <textarea id='textarea'>
+            <button onClick={changeYears}>
+                Add
+            </button>
+
+            <button onClick={deleteYears}>
+                Undo
+            </button>
+
+            <br></br>
+            <br></br>
+
+            <textarea id='textarea2'>
                 {typedNumbers}
             </textarea>
 
             <br></br>
 
             <button onClick={addToArray}>
-                GO
+                Run
             </button>
 
             <button onClick={deleteArrayValues}>
-                UNDO
+                Undo
             </button>
 
         </section >
